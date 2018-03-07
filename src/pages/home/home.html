@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>iWeather</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <ion-grid *ngIf="weather">
+    <ion-row>
+      <ion-col width-50 offset-25>
+        <h2 class="location">{{ weather.location.city }}</h2>
+        <div class="icon"><img src="{{ weather.clime.iconUrl }}" alt=""></div>
+        <h3 class="desc">{{ weather.clime.main}}</h3>
+        <h1 class="temp">{{ weather.temperature.temp }}&deg;</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-100>
+          <ion-list>
+            <ion-item>
+              <strong>Relative Humidity: </strong> {{ weather.temperature.humidity }}%
+            </ion-item>
+            <ion-item>
+              <strong>Min Temp: </strong> {{ weather.temperature.temp_min }}&deg;
+            </ion-item>
+            <ion-item>
+              <strong>Max Temp: </strong> {{ weather.temperature.temp_max }}&deg;
+            </ion-item>
+          </ion-list>
+        </ion-col>
+    </ion-row>      
+    <ion-row>
+        <ion-col width-100>
+          <ion-list>
+            <ion-item>
+              <strong>Wind Speed: </strong> {{ weather.wind.speed }} m/s
+            </ion-item>
+          </ion-list>
+        </ion-col>
+    </ion-row>      
+  </ion-grid>
+</ion-content>
